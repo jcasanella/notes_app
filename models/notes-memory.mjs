@@ -1,4 +1,4 @@
-import { Note, AbstractNotesStore } from "./notes.mjs";
+import { Note, AbstractNotesStore } from './notes.mjs';
 
 const notes = [];
 

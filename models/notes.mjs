@@ -9,12 +9,22 @@ export class Note {
         this[_note_body] = body;
     }
 
-    get key() { return this[_note_key]; }
-    get title() { return this[_note_title]; }
-    get body() { return this[_note_body]; }
+    get key() {
+        return this[_note_key];
+    }
+    get title() {
+        return this[_note_title];
+    }
+    get body() {
+        return this[_note_body];
+    }
 
-    set title(newTitle) { this[_note_title] = newTitle; }
-    set body(newBody) { this[_note_body] = newBody; }
+    set title(newTitle) {
+        this[_note_title] = newTitle;
+    }
+    set body(newBody) {
+        this[_note_body] = newBody;
+    }
 }
 
 export class AbstractNotesStore {

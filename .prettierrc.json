@@ -4,11 +4,12 @@
     "semi": true,
     "singleQuote": true,
     "printWidth": 120,
+    "plugins": ["prettier-plugin-hbs"],
     "overrides": [
         {
             "files": "**/*.hbs",
             "options": {
-                "parser": "angular"
+                "parser": "html"
             }
         }
     ]
