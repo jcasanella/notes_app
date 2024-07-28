@@ -1,0 +1,13 @@
+{{#if note }}
+<h3>{{note.title}}</h3>
+{{/if}} {{#if note}}
+<p>{{note.body}}</p>
+{{/if}}
+<p>Key: {{noteKey}}</p>
+{{#if noteKey}}
+<p>
+    <hr>
+    <a href='/notes/destroy?key={{noteKey}}'>Destroy</a>
+    | <a href='/notes/edit?key={{noteKey}}'>Edit</a>
+</p>
+{{/if}}
