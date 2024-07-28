@@ -42,3 +42,42 @@ router.get('/view', async (req, res, next) => {
         next(error);
     }
 });
+
+// Edit note (update)
+router.get('/edit', async (req, res, next) => {
+    try {
+        const note = await notesStore.read(req.query.key);
+        res.render('noteEdit', {
+            title: note ? 'Edit ' + note.title : 'Add a Note',
+            doCreate: false,
+            noteKey: req.query.key,
+            note,
+        });
+    } catch (error) {
+        next(error);
+    }
+});
+
+// Ask to delete note (destroy)
+router.get('/destroy', async (req, res, next) => {
+    try {
+        const note = await notesStore.read(req.query.key);
+        res.render('noteDestroy', {
+            title: note ? note.title : '',
+            noteKey: req.query.key,
+            note,
+        });
+    } catch (error) {
+        next(error);
+    }
+});
+
+// Really destroy note (Destroy)
+router.post('/destroy/confirm', async (req, res, next) => {
+    try {
+        await notesStore.destroy(req.body.noteKey);
+        res.redirect('/');
+    } catch (error) {
+        next(error);
+    }
+});

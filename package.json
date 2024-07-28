@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "start": "cross-env DEBUG=notes:* node ./app.mjs",
+        "start": "cross-env DEBUG=notes:* nodemon ./app.mjs",
         "format:check": "prettier --check .",
         "format:write": "prettier --write .",
         "lint:check": "eslint .",
@@ -27,6 +27,7 @@
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-prettier": "^5.2.1",
         "globals": "^15.8.0",
+        "nodemon": "^3.1.4",
         "prettier": "^3.3.3",
         "prettier-plugin-hbs": "^1.0.1"
     }

@@ -1,0 +1,6 @@
+<form action="/notes/destroy/confirm" method="post">
+    <input type="hidden" name="noteKey" value="{{#if note}}{{noteKey}}{{/if}}" />
+    <p>Delete {{note.title}}?</p>
+    <p><input type="submit" value="DELETE" /></p>
+    <a href="/notes/view?key={{#if note}}{{noteKey}}{{/if}}">Cancel</a>
+</form>
