@@ -33,8 +33,15 @@ app.use(
     '/assets/vendor/bootstrap/css',
     express.static(path.join(__dirname, 'node_modules', 'bootstrap', 'dist', 'css'))
 );
-app.use('/assets/vendor/popper/js', express.static(path.join(__dirname, 'node_modules', '@popperjs', 'dist', 'umd')));
+app.use(
+    '/assets/vendor/popper/js',
+    express.static(path.join(__dirname, 'node_modules', '@popperjs', 'core', 'dist', 'umd'))
+);
 app.use('/assets/vendor/bootstrap/js', express.static(path.join(__dirname, 'node_modules', 'bootstrap', 'dist', 'js')));
+app.use(
+    '/assets/vendor/feather-icons/js',
+    express.static(path.join(__dirname, 'node_modules', 'feather-icons', 'dist'))
+);
 
 // Router function lists
 app.use('/', indexRouter);

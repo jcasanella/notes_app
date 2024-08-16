@@ -12,13 +12,14 @@
         "lint:fix": "eslint --fix ."
     },
     "dependencies": {
-        "body-parser": "^1.20.2",
         "@popperjs/core": "^2.11.8",
+        "body-parser": "^1.20.2",
         "bootstrap": "5.3.3",
         "cookie-parser": "~1.4.4",
         "cross-env": "^7.0.3",
         "debug": "~2.6.9",
         "express": "~4.16.1",
+        "feather-icons": "^4.29.2",
         "hbs": "~4.0.4",
         "http-errors": "~1.6.3",
         "morgan": "~1.9.1"
