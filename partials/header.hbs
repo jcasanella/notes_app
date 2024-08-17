@@ -1,6 +1,32 @@
-<header>
-    <h1>{{ title }}</h1>
-    <div class="navbar">
-        <p><a href="/">Home</a> | <a href="/notes/add">Add Notes</a></p>
-    </div>
+<header class="page-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">{{title}}</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/"><i data-feather="home"></i></a>
+                    </li>
+                    {{#if breadcrumb}}
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="{{breadcrumb.url}}"> {{breadcrumb.title}}</a>
+                    </li>
+                    {{/if}}
+                </ul>
+
+                <a href="/notes/add" class="btn btn-light col-auto" type="submit">Add Note</a>
+            </div>
+        </div>
+    </nav>
 </header>
