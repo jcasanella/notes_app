@@ -61,7 +61,7 @@ router.get(
     runAsyncWrapper(async (req, res, next) => {
         const note = await notesStore.read(req.query.key);
         res.render('noteDestroy', {
-            title: note ? note.title : '',
+            title: note ? `Delete ${note.title}` : '',
             noteKey: req.query.key,
             note,
         });
