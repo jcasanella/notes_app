@@ -1,8 +1,10 @@
 {
     "scripts": {
         "download": "wget -O - 'https://github.com/twbs/bootstrap/archive/refs/tags/v5.3.3.tar.gz' | tar xvfz -",
-        "postdownload": "cd bootstrap-5.3.3 && npm install",
-        "clean": "rimraf bootstrap-5.3.3"
+        "postdownload": "cd bootstrap-5.3.3 && pnpm install",
+        "clean": "rimraf bootstrap-5.3.3",
+        "build": "cd bootstrap-5.3.3 && pnpm run dist",
+        "watch": "cd bootstrap-5.3.3 && pnpm run watch"
     },
     "dependencies": {
         "rimraf": "^6.0.1"
