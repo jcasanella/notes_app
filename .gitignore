@@ -61,3 +61,6 @@ typings/
 .next
 
 theme/*.tgz
+
+theme/bootstrap-5*
+theme/dist

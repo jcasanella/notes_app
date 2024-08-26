@@ -3,8 +3,13 @@
         "download": "wget -O - 'https://github.com/twbs/bootstrap/archive/refs/tags/v5.3.3.tar.gz' | tar xvfz -",
         "postdownload": "cd bootstrap-5.3.3 && pnpm install",
         "clean": "rimraf bootstrap-5.3.3",
-        "build": "cd bootstrap-5.3.3 && pnpm run dist",
-        "watch": "cd bootstrap-5.3.3 && pnpm run watch"
+        "watch": "cd bootstrap-5.3.3 && npm run watch",
+        "prebuild": "cp _custom.scss bootstrap.scss bootstrap-5.3.3/scss",
+        "build": "cd bootstrap-5.3.3 && npm run dist",
+        "postbuild": "mkdir -p dist && cp -r bootstrap-5.3.3/dist .",
+        "dl-darkly": "mkdir -p darkly && pnpm run dl-darkly-css && pnpm run dl-darkly-min-css",
+        "dl-darkly-css": "wget https://bootswatch.com/5/darkly/bootstrap.css -O darkly/bootstrap.css",
+        "dl-darkly-min-css": "wget https://bootswatch.com/5/darkly/bootstrap.min.css -O darkly/bootstrap.min.css"
     },
     "dependencies": {
         "rimraf": "^6.0.1"

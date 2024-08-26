@@ -3,8 +3,10 @@
         <input type="hidden" name="noteKey" value="{{#if note}}{{noteKey}}{{/if}}" />
         <p class="form-text">Delete {{note.title}}?</p>
         <div class="btn-group">
-            <button type="submit" value="DELETE" class="btn btn-outline-dark">DELETE</button>
-            <a class="btn btn-outline-dark" href="/notes/view?key={{#if note}}{{noteKey}}{{/if}}">Cancel</a>
+            <button type="submit" value="DELETE" class="btn btn-light btn-outline-primary">Delete</button>
+            <a class="btn btn-light btn-outline-primary" href="/notes/view?key={{#if note}}{{noteKey}}{{/if}}"
+                >Cancel</a
+            >
         </div>
     </div>
 </form>
