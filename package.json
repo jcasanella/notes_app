@@ -1,6 +1,9 @@
 {
-    "name": "notes",
+    "name": "notes-app",
     "version": "1.0.0",
+    "engines": {
+        "node": "19.x"
+    },
     "private": true,
     "scripts": {
         "start": "cross-env DEBUG=notes:* nodemon ./app.mjs",
