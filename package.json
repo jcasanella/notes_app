@@ -6,9 +6,9 @@
     },
     "private": true,
     "scripts": {
-        "start": "cross-env DEBUG=notes:* nodemon ./app.mjs",
-        "server1": "cross-env DEBUG=notes:* PORT=3001 nodemon ./app.mjs",
-        "server2": "cross-env DEBUG=notes:* PORT=3002 nodemon ./app.mjs",
+        "start": "cross-env REQUEST_LOG_FILE=log.txt REQUEST_LOG_FORMAT=common DEBUG=notes:* nodemon ./app.mjs",
+        "server1": "cross-env REQUEST_LOG_FILE=log1.txt REQUEST_LOG_FORMAT=common DEBUG=notes:* PORT=3001 nodemon ./app.mjs",
+        "server2": "cross-env REQUEST_LOG_FILE=log2.txt REQUEST_LOG_FORMAT=common DEBUG=notes:* PORT=3002 nodemon ./app.mjs",
         "format:check": "prettier --check .",
         "format:write": "prettier --write .",
         "lint:check": "eslint .",
@@ -25,7 +25,8 @@
         "feather-icons": "^4.29.2",
         "hbs": "~4.0.4",
         "http-errors": "~1.6.3",
-        "morgan": "~1.9.1"
+        "morgan": "~1.9.1",
+        "rotating-file-stream": "^3.2.3"
     },
     "devDependencies": {
         "@eslint/js": "^9.7.0",

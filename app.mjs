@@ -13,6 +13,7 @@ import { router as indexRouter } from './routes/index.mjs';
 import { router as notesRouter } from './routes/notes.mjs';
 // import { router as notesRouter } from './routes/notes.mjs';
 import { InMemoryNotesStore } from './models/notes-memory.mjs';
+import { createStream } from 'rotating-file-stream';
 
 export const app = express();
 export const notesStore = new InMemoryNotesStore();
@@ -24,7 +25,24 @@ hbs.registerPartials(path.join(__dirname, 'partials'));
 
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+
+// logging to file
+app.use(
+    logger(process.env.REQUEST_LOG_FORMAT || 'dev', {
+        stream: process.env.REQUEST_LOG_FILE
+            ? createStream(process.env.REQUEST_LOG_FILE, {
+                  size: '10M', // Rotate every 10M written
+                  interval: '1d', // Rotate daily
+                  compress: 'gzip', // Compress rotated file
+              })
+            : process.stdout,
+    })
+);
+// logging to console
+if (process.env.REQUEST_LOG_FILE) {
+    app.use(logger(process.env.REQUEST_LOG_FORMAT || 'dev'));
+}
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
